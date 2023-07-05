@@ -16,4 +16,7 @@ describe('card', function() {
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
   });  
+
+  
+
 });
