@@ -2,7 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 // const { createRound } = require('../src/round');
-const { createRound, takeTurn } = require('../src/round');
+const { createRound, takeTurn, calculatePercentCorrect } = require('../src/round');
 const { createDeck } = require('../src/deck');
 const { createCard } = require('../src/card');
 
@@ -40,7 +40,6 @@ describe('take turn', function() {
     // correct guess
     it('should increment turn to 1', function() {
         takeTurn('sea otter', round)
-        console.log(round.turns)
         expect(round.turns).to.equal(1)
     })
     
@@ -53,5 +52,17 @@ describe('take turn', function() {
     it('should add card ID to incorrectGuesses array', function() {
         expect(round.incorrectGuesses).to.deep.equal([2])
     })
+})
 
+describe('calculate percentage', function() {
+    const mockRound = {
+        turns: 10,
+        incorrectGuesses: ['one', 'two']
+    }
+
+    const percent = calculatePercentCorrect(roundObject)
+
+    it('should calculate percent total of correct guesses', function() {
+        expect(percent).to.equal(80)
+    })
 })

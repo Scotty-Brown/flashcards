@@ -18,12 +18,18 @@ function takeTurn(guess, round) {
     } else {
         eval
     }
-    
+
     round.turns += 1
     round.currentCard = round.deck[round.turns]
 }
 
+function calculatePercentCorrect(round) {
+    return (round.turns - round.incorrectGuesses.length)/round.turns * 100
+}
+
+
 module.exports = { 
     createRound,
-    takeTurn
+    takeTurn,
+    calculatePercentCorrect
 }
