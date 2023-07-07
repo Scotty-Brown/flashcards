@@ -1,12 +1,12 @@
 const { createCard } = require('./card');
-const { createDeck } = require('./deck')
+const { createDeck, countDeck } = require('./deck')
 const { createRound } = require('./round')
 const data = require('./data');
 const util = require('./util');
 const prototypeQuestions = data.prototypeData;
 
 function printMessage(deck) {
-  console.log(`Welcome to FlashCards! You are playing with ${countCards(deck)} cards.
+  console.log(`Welcome to FlashCards! You are playing with ${countDeck(deck)} cards.
   -----------------------------------------------------------------------`);
 }
 
